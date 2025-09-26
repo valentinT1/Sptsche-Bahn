@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">Spätsche Bahn</string>
+    <string name="minutes_unit" translatable="false">min</string>
+
+    <string name="all_time_delay_label">My all time delay</string>
+    <string name="upload_qr_button_label">Upload QR</string>
 </resources>

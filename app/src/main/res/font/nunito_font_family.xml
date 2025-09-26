@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Regular (usually fontWeight 400) -->
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="400"
+        android:font="@font/nunito_variable_wght"
+        app:fontStyle="normal"
+        app:fontWeight="400"
+        app:font="@font/nunito_variable_wght"/>
+
+    <!-- Medium (usually fontWeight 500) -->
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="500"
+        android:font="@font/nunito_variable_wght"
+        app:fontStyle="normal"
+        app:fontWeight="500"
+        app:font="@font/nunito_variable_wght"/>
+
+    <!-- SemiBold (usually fontWeight 600) -->
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="600"
+        android:font="@font/nunito_variable_wght"
+        app:fontStyle="normal"
+        app:fontWeight="600"
+        app:font="@font/nunito_variable_wght"/>
+
+    <!-- Bold (usually fontWeight 700) -->
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="700"
+        android:font="@font/nunito_variable_wght"
+        app:fontStyle="normal"
+        app:fontWeight="700"
+        app:font="@font/nunito_variable_wght"/>
+
+    <!-- ExtraBold (usually fontWeight 800) - Nunito supports this -->
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="800"
+        android:font="@font/nunito_variable_wght"
+        app:fontStyle="normal"
+        app:fontWeight="800"
+        app:font="@font/nunito_variable_wght"/>
+
+    <!-- Black (usually fontWeight 900) - Nunito supports this -->
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="900"
+        android:font="@font/nunito_variable_wght"
+        app:fontStyle="normal"
+        app:fontWeight="900"
+        app:font="@font/nunito_variable_wght"/>
+
+    <!-- Light (usually fontWeight 300) - Nunito supports this -->
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="300"
+        android:font="@font/nunito_variable_wght"
+        app:fontStyle="normal"
+        app:fontWeight="300"
+        app:font="@font/nunito_variable_wght"/>
+
+    <!-- ExtraLight (usually fontWeight 200) - Nunito supports this -->
+    <font
+        android:fontStyle="normal"
+        android:fontWeight="200"
+        android:font="@font/nunito_variable_wght"
+        app:fontStyle="normal"
+        app:fontWeight="200"
+        app:font="@font/nunito_variable_wght"/>
+
+</font-family>
