@@ -8,7 +8,6 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -28,10 +27,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.tamtam.sptschebahn.AppConstants.BUTTON_MAX_WIDTH
 import com.tamtam.sptschebahn.ui.component.DelayText
 import com.tamtam.sptschebahn.ui.component.HeadlineText
-import com.tamtam.sptschebahn.ui.theme.SptscheBahnTheme // Ensure this path is correct
+import com.tamtam.sptschebahn.ui.component.MenuRow
+import com.tamtam.sptschebahn.ui.theme.SptscheBahnTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,10 +42,26 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             SptscheBahnTheme {
+                val navController = rememberNavController()
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    MainScreen(
+                    NavHost(
+                        navController = navController,
+                        startDestination = "main",
                         modifier = Modifier.padding(innerPadding),
-                    )
+                    ) {
+                        composable("main") {
+                            MainScreen(
+                                onAppIconClick = { navController.navigate("main") },
+                                onAchievementClick = { navController.navigate("achievements") },
+                            )
+                        }
+                        composable("achievements") {
+                            AchievementsScreen(
+                                onAppIconClick = { navController.navigate("main") },
+                                onAchievementClick = { navController.navigate("achievements") },
+                            )
+                        }
+                    }
                 }
             }
         }
@@ -50,7 +69,11 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MainScreen(modifier: Modifier = Modifier) {
+fun MainScreen(
+    modifier: Modifier = Modifier,
+    onAppIconClick: () -> Unit = {},
+    onAchievementClick: () -> Unit = {},
+) {
     val allTimeDelayMinutes = AppConstants.DEFAULT_ALL_TIME_DELAY_MINUTES
     var selectedImageUri by remember { mutableStateOf<Uri?>(null) }
 
@@ -71,8 +94,14 @@ fun MainScreen(modifier: Modifier = Modifier) {
                 .fillMaxSize()
                 .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
     ) {
+        MenuRow(
+            onAppIconClick = onAppIconClick,
+            onAchievementClick = onAchievementClick,
+        )
+
+        Spacer(modifier = Modifier.height(50.dp))
+
         HeadlineText()
         Spacer(modifier = Modifier.height(20.dp))
         DelayText(minutes = allTimeDelayMinutes)
