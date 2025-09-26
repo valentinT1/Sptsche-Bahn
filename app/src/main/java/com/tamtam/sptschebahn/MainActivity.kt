@@ -51,7 +51,11 @@ class MainActivity : ComponentActivity() {
                     ) {
                         composable("main") {
                             MainScreen(
-                                onAppIconClick = { navController.navigate("main") },
+                                onAppIconClick = {
+                                    if (navController.currentBackStackEntry?.destination?.route != "main") {
+                                        navController.navigate("main")
+                                    }
+                                },
                                 onAchievementClick = { navController.navigate("achievements") },
                             )
                         }

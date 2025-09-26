@@ -38,7 +38,7 @@ fun MenuRow(
             Image(
                 painter = painterResource(id = R.drawable.app_icon),
                 contentDescription = stringResource(id = R.string.app_logo_content_description),
-                modifier = Modifier.size(200.dp),
+                modifier = Modifier.size(64.dp),
                 contentScale = ContentScale.Fit,
             )
         }
