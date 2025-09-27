@@ -1,6 +1,7 @@
 plugins {
-    id("com.android.application") version libs.versions.agp.get() apply false
-    id("org.jetbrains.kotlin.android") version libs.versions.kotlin.get() apply false
-    id("org.jetbrains.kotlin.plugin.compose") version libs.versions.kotlin.get() apply false
-    id("dev.detekt") version(libs.versions.detekt)
+    alias(libs.plugins.agp) apply false
+    alias(libs.plugins.kotlin) apply false
+    alias(libs.plugins.compose) apply false
+    alias(libs.plugins.serialization) apply false
+    alias(libs.plugins.detekt)
 }

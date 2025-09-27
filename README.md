@@ -19,6 +19,9 @@ An app to count how late the Deutsche Bahn got you in total.
 -> Buy discounts with money earned by delays ?
 - Leaderboard: see how you rank against other users in terms of total delay time.
 - Offering alternative routes when a connexion will be missed due to a delay.
+- Your year recap with statistics that you can share on social media (à la Spotify Wrapped).
+- Redirection to the DB website/app to request compensation for delays over the legal limit.
+- In statistics: also display the amount of trains late vs trains on time + percentage.
 
 ### iOS integration
 - Integrate with Apple Health to add the time lost due to delays to your "Time spent commuting" metric.
