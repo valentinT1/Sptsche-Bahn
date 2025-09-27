@@ -4,3 +4,4 @@ plugins {
     alias(libs.plugins.compose) apply false
     alias(libs.plugins.serialization) apply false
     alias(libs.plugins.detekt)
+}
