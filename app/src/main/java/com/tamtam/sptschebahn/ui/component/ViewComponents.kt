@@ -18,6 +18,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.tamtam.sptschebahn.AppConstants.SIZE_48
+import com.tamtam.sptschebahn.AppConstants.SIZE_64
 import com.tamtam.sptschebahn.R
 
 @Composable
@@ -25,6 +27,7 @@ fun MenuRow(
     modifier: Modifier = Modifier,
     onAppIconClick: () -> Unit,
     onAchievementClick: () -> Unit,
+    profilePictureResId: Int? = null,
 ) {
     Row(
         modifier = modifier.fillMaxWidth(),
@@ -33,12 +36,12 @@ fun MenuRow(
     ) {
         IconButton(
             onClick = onAppIconClick,
-            modifier = Modifier.size(64.dp),
+            modifier = Modifier.size(SIZE_64.dp),
         ) {
             Image(
                 painter = painterResource(id = R.drawable.app_icon),
                 contentDescription = stringResource(id = R.string.app_logo_content_description),
-                modifier = Modifier.size(64.dp),
+                modifier = Modifier.size(SIZE_64.dp),
                 contentScale = ContentScale.Fit,
             )
         }
@@ -46,15 +49,23 @@ fun MenuRow(
             Image(
                 painter = painterResource(id = R.drawable.achievement_icon),
                 contentDescription = stringResource(id = R.string.achievements),
-                modifier = Modifier.size(48.dp),
+                modifier = Modifier.size(SIZE_48.dp),
             )
         }
         Box(
             modifier =
                 Modifier
-                    .size(48.dp)
+                    .size(SIZE_48.dp)
                     .clip(CircleShape)
                     .background(MaterialTheme.colorScheme.surfaceVariant),
-        )
+            contentAlignment = Alignment.Center,
+        ) {
+            Image( // TODO load from user profile
+                painter = painterResource(id = profilePictureResId ?: R.drawable.default_user_picture),
+                contentDescription = stringResource(id = R.string.profile_picture),
+                modifier = Modifier.size(SIZE_48.dp).clip(CircleShape),
+                contentScale = ContentScale.Crop,
+            )
+        }
     }
 }

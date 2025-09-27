@@ -3,6 +3,8 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.agp)
     alias(libs.plugins.kotlin)
+    alias(libs.plugins.compose)
+    alias(libs.plugins.serialization)
     alias(libs.plugins.detekt)
 }
 

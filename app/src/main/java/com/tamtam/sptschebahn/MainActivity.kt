@@ -30,10 +30,18 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.tamtam.sptschebahn.AppConstants.BUTTON_HEIGHT_60
 import com.tamtam.sptschebahn.AppConstants.BUTTON_MAX_WIDTH
+import com.tamtam.sptschebahn.AppConstants.PADDING_16
+import com.tamtam.sptschebahn.AppConstants.SPACER_HEIGHT_16
+import com.tamtam.sptschebahn.AppConstants.SPACER_HEIGHT_32
+import com.tamtam.sptschebahn.AppConstants.SPACER_HEIGHT_50
 import com.tamtam.sptschebahn.ui.component.DelayText
 import com.tamtam.sptschebahn.ui.component.HeadlineText
 import com.tamtam.sptschebahn.ui.component.MenuRow
+import com.tamtam.sptschebahn.ui.navigation.Achievements
+import com.tamtam.sptschebahn.ui.navigation.Main
+import com.tamtam.sptschebahn.ui.screen.AchievementsScreen
 import com.tamtam.sptschebahn.ui.theme.SptscheBahnTheme
 
 class MainActivity : ComponentActivity() {
@@ -46,23 +54,33 @@ class MainActivity : ComponentActivity() {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     NavHost(
                         navController = navController,
-                        startDestination = "main",
+                        startDestination = Main,
                         modifier = Modifier.padding(innerPadding),
                     ) {
-                        composable("main") {
+                        composable<Main> {
                             MainScreen(
                                 onAppIconClick = {
-                                    if (navController.currentBackStackEntry?.destination?.route != "main") {
-                                        navController.navigate("main")
+                                    if (
+                                        navController.currentBackStackEntry?.destination?.route
+                                        != Main::class.qualifiedName
+                                    ) {
+                                        navController.navigate(Main)
                                     }
                                 },
-                                onAchievementClick = { navController.navigate("achievements") },
+                                onAchievementClick = { navController.navigate(Achievements) },
                             )
                         }
-                        composable("achievements") {
+                        composable<Achievements> {
                             AchievementsScreen(
-                                onAppIconClick = { navController.navigate("main") },
-                                onAchievementClick = { navController.navigate("achievements") },
+                                onAppIconClick = { navController.navigate(Main) },
+                                onAchievementClick = {
+                                    if (
+                                        navController.currentBackStackEntry?.destination?.route
+                                        != Achievements::class.qualifiedName
+                                    ) {
+                                        navController.navigate(Achievements)
+                                    }
+                                },
                             )
                         }
                     }
@@ -96,7 +114,7 @@ fun MainScreen(
         modifier =
             modifier
                 .fillMaxSize()
-                .padding(16.dp),
+                .padding(PADDING_16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         MenuRow(
@@ -104,13 +122,13 @@ fun MainScreen(
             onAchievementClick = onAchievementClick,
         )
 
-        Spacer(modifier = Modifier.height(50.dp))
+        Spacer(modifier = Modifier.height(SPACER_HEIGHT_50.dp))
 
         HeadlineText()
-        Spacer(modifier = Modifier.height(20.dp))
+        Spacer(modifier = Modifier.height(SPACER_HEIGHT_16.dp))
         DelayText(minutes = allTimeDelayMinutes)
 
-        Spacer(modifier = Modifier.height(32.dp))
+        Spacer(modifier = Modifier.height(SPACER_HEIGHT_32.dp))
 
         Button(
             onClick = {
@@ -119,7 +137,7 @@ fun MainScreen(
             modifier =
                 Modifier
                     .fillMaxWidth(BUTTON_MAX_WIDTH)
-                    .height(60.dp),
+                    .height(BUTTON_HEIGHT_60.dp),
         ) {
             Text(text = stringResource(id = R.string.upload_qr_button_label))
         }
