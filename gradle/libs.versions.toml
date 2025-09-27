@@ -8,7 +8,7 @@ espressoCore = "3.7.0"
 lifecycleRuntimeKtx = "2.9.4"
 activityCompose = "1.11.0"
 composeBom = "2025.09.01"
-detekt = "1.23.8"
+detekt = "2.0.0-alpha.0"
 navigationCompose = "2.9.5"
 serialization = "2.2.20"
 
@@ -32,6 +32,6 @@ androidx-navigation-compose = { group = "androidx.navigation", name = "navigatio
 [plugins]
 agp = { id = "com.android.application", version.ref = "agp" }
 kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+detekt = { id = "dev.detekt", version.ref = "detekt" }
 compose = { id = "org.jetbrains.kotlin.plugin.compose", version = "2.2.20" }
 serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "serialization" }

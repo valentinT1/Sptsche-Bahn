@@ -54,8 +54,11 @@ kotlin {
 }
 
 detekt {
+    toolVersion = libs.versions.detekt
     buildUponDefaultConfig = true
+    allRules = false
     config.setFrom(files("$rootDir/detekt.yml"))
+    ignoreFailures = false
 }
 
 dependencies {
