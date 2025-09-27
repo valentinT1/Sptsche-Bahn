@@ -15,5 +15,4 @@
 .externalNativeBuild
 .cxx
 local.properties
-detekt.yml
 /app/src/main/java/com/tamtam/sptschebahn/.editorconfig

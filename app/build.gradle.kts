@@ -4,7 +4,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("org.jetbrains.kotlin.plugin.compose")
-    id("io.gitlab.arturbosch.detekt")
+    id("dev.detekt")
 }
 
 android {
@@ -53,10 +53,11 @@ kotlin {
 }
 
 detekt {
+    toolVersion = libs.versions.detekt
     buildUponDefaultConfig = true
+    allRules = false
     config.setFrom(files("$rootDir/detekt.yml"))
-    // Optional: fail the build on Detekt issues
-    // ignoreFailures = false
+    ignoreFailures = false
 }
 
 dependencies {
