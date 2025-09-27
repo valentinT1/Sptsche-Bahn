@@ -4,4 +4,7 @@
 
     <string name="all_time_delay_label">My all time delay</string>
     <string name="upload_qr_button_label">Upload QR</string>
+    <string name="app_logo_content_description">App Icon</string>
+    <string name="achievements">Achievements</string>
+    <string name="profile_picture">Profile Picture</string>
 </resources>
